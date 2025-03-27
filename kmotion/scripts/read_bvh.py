@@ -1,3 +1,5 @@
+"""Utility script to visualize BVH animation data by plotting hip joint positions over time."""
+
 import sys
 
 import bvhio
@@ -59,7 +61,7 @@ axes[2].grid(True)
 axes[2].autoscale(True)
 
 # Add padding between subplots
-plt.tight_layout(pad=3.0, rect=[0, 0, 1, 0.95])  # rect adjusts space for the title
+plt.tight_layout(pad=3.0, rect=(0, 0, 1, 0.95))  # rect adjusts space for the title
 
 # Show the plot
 plt.show()

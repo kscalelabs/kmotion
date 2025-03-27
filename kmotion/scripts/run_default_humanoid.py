@@ -29,8 +29,8 @@ DEFAULT_RENDER_HEIGHT = 720
 CONTROL_DT = 0.02  # Control timestep (20ms)
 
 
-def compute_qpos_from_bvh(root):
-    """Compute a qpos vector from the BVH keyframe (frame 0) with 28 values:
+def compute_qpos_from_bvh(root: object) -> np.ndarray:
+    """Compute a qpos vector from the BVH keyframe (frame 0) with 28 values.
 
     qpos[0:7]   = Root (from BVH "Hip")
     qpos[7:10]  = Abdomen joints (set to zero for now)
@@ -48,8 +48,16 @@ def compute_qpos_from_bvh(root):
     qpos[25:28] = Left arm:
                     - [25:27] = 2 selected Euler components from L_Upperarm (e.g., [x, z])
                     - [27]    = X component from L_Forearm
+
+    Args:
+        root: The root BVH hierarchy object
+
+    Returns:
+        A numpy array containing the computed qpos values
     """
     qpos = np.zeros(28)
+
+    assert hasattr(root, "filter")
 
     # --- Root (indices 0:7) ---
     hip = root.filter("Hip")[0]

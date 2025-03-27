@@ -31,9 +31,15 @@ incremental = true
 namespace_packages = false
 
 # Uncomment to exclude modules from Mypy.
-# [[tool.mypy.overrides]]
-# module = []
-# ignore_missing_imports = true
+[[tool.mypy.overrides]]
+module = [
+    "bpy.*",
+    "bvhio.*",
+    "mujoco.*",
+    "scipy.*",
+    
+]
+ignore_missing_imports = true
 
 [tool.isort]
 

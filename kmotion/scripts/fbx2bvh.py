@@ -1,3 +1,5 @@
+"""Tool for converting FBX animation files to BVH format using Blender."""
+
 import argparse
 import os
 import sys
@@ -6,9 +8,13 @@ import bpy
 import numpy as np
 
 
-def fbx2bvh(file_path):
-    """Import an FBX file from file_path, export its animation as a BVH file
+def fbx2bvh(file_path: str) -> None:
+    """Import an FBX file from file_path, export its animation as a BVH file.
+
     in the same directory, and then remove the imported action.
+
+    Args:
+        file_path: Path to the input FBX file
     """
     dir_path, filename = os.path.split(file_path)
     base, ext = os.path.splitext(filename)
@@ -31,7 +37,7 @@ def fbx2bvh(file_path):
     print(f"Processed: {file_path} --> {bvh_path}")
 
 
-def process_directory(root_dir):
+def process_directory(root_dir: str) -> None:
     """Recursively search for all .fbx files under root_dir and process each one."""
     for root, dirs, files in os.walk(root_dir):
         for file in files:
@@ -40,7 +46,7 @@ def process_directory(root_dir):
                 fbx2bvh(file_path)
 
 
-def main():
+def main() -> None:
     # Parse command-line arguments after the double dash "--"
     argv = sys.argv
     if "--" in argv:
@@ -59,4 +65,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
