@@ -1,2 +1,9 @@
 # requirements.txt
 
+bpy
+bvhio
+matplotlib
+numpy
+kmv
+colorlogging
+pynput

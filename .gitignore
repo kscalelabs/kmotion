@@ -19,3 +19,8 @@ build/
 dist/
 *.so
 out*/
+
+# kmotion stuff
+blender_install_here/
+
+
