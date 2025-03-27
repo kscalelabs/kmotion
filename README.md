@@ -1,1 +1,3 @@
-# motion_tests
+# kmotion
+
+Welcome to the kmotion project!
